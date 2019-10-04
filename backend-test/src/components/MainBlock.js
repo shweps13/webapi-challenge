@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card } from 'semantic-ui-react'
 
 import AxiosThing from '../utilites/AxiosThing';
-// import CardBtn from './CardBtn';
+import CardBtn from './CardBtn';
 import AddProject from './AddProject';
 
 
@@ -33,7 +33,7 @@ function MainBlock() {
                                 <Card.Meta>{project.name}</Card.Meta>
                                 <Card.Description>{project.description}</Card.Description>
                             </Card.Content>
-                            {/* <CardBtn id={project.id} setState={setState} /> */}
+                            <CardBtn id={project.id} setState={setState} />
                         </Card>
                     ))}
         </Card.Group>
