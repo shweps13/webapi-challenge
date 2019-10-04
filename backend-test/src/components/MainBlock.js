@@ -24,19 +24,19 @@ function MainBlock() {
 
   return (
     <div className="MainBlock">
-        {/* <AddUser update={update} setUpdate={setUpdate} />
+        {/* <AddUser update={update} setUpdate={setUpdate} /> */}
         <Card.Group centered>
-            {users.map(user => (
-                        <Card key={user.id}>
+            {projects.map(project => (
+                        <Card key={project.id}>
                             <Card.Content>
-                                <Card.Header>User {user.id}</Card.Header>
-                                <Card.Meta>{user.name}</Card.Meta>
-                                <Card.Description>{user.bio}</Card.Description>
+                                <Card.Header>Project {project.id}</Card.Header>
+                                <Card.Meta>{project.name}</Card.Meta>
+                                <Card.Description>{project.description}</Card.Description>
                             </Card.Content>
-                            <CardBtn id={user.id} setState={setState} />
+                            {/* <CardBtn id={project.id} setState={setState} /> */}
                         </Card>
                     ))}
-        </Card.Group> */}
+        </Card.Group>
     </div>
   );
 }

@@ -20,3 +20,10 @@
 .App-link {
   color: #09d3ac;
 }
+
+.MainBlock {
+  background-color: rgb(217, 234, 240);
+  border-radius: 15px;
+  width: 75%;
+  margin: 5% 12.5%;
+}
