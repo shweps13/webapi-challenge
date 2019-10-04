@@ -27,7 +27,7 @@ function ProjectCards(props) {
             return <Message error header='Not completed'/>
             }
         }
-console.log(props)
+// console.log(props)
   return (
     
                         <Card key={props.id}>
@@ -48,7 +48,6 @@ console.log(props)
 
                                 <Form onSubmit={saveEdit}>
                                     
-                                <legend>Edit item</legend>
                                 <label>
                                     Name:
                                     <input
@@ -79,7 +78,7 @@ console.log(props)
                                     />
                                 </label>
 
-                                <div className="button-row">
+                                <div className="button-row2">
                                     <Button type="submit">Save</Button>
                                     <Button onClick={() => props.setEditing(false)}>Cancel</Button>
                                 </div>
