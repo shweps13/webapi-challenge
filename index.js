@@ -1,5 +1,6 @@
 const express = require('express');
 const helmet = require('helmet');
+const cors = require('cors');
 
 const server = express();
 
@@ -44,6 +45,7 @@ function validateActionsId(req, res, next) {
 // ===== End of middleware =====
 
 server.use(express.json());
+server.use(cors())
 server.use(helmet());
 server.use(logger);
 

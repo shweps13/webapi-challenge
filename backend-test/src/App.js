@@ -1,5 +1,8 @@
 import React from 'react';
 import './App.css';
+import 'semantic-ui-css/semantic.min.css'
+
+import MainBlock from './components/MainBlock'
 
 function App() {
   return (
@@ -9,6 +12,7 @@ function App() {
           Backend sprint React App
         </h1>
       </header>
+      <MainBlock />
     </div>
   );
 }
