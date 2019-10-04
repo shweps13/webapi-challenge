@@ -3,7 +3,7 @@ import { Card } from 'semantic-ui-react'
 
 import AxiosThing from '../utilites/AxiosThing';
 // import CardBtn from './CardBtn';
-// import AddUser from './AddUser';
+import AddProject from './AddProject';
 
 
 function MainBlock() {
@@ -24,7 +24,7 @@ function MainBlock() {
 
   return (
     <div className="MainBlock">
-        {/* <AddUser update={update} setUpdate={setUpdate} /> */}
+        <AddProject update={update} setUpdate={setUpdate} />
         <Card.Group centered>
             {projects.map(project => (
                         <Card key={project.id}>

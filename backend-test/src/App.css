@@ -27,3 +27,11 @@
   width: 75%;
   margin: 5% 12.5%;
 }
+#root > div > div > div.ui.text.container > div > form > div {
+  width: 75%;
+  margin: 3% 11%;
+}
+
+#root > div > div > div.ui.text.container > div > h2 {
+  padding-top: 3%;
+}
