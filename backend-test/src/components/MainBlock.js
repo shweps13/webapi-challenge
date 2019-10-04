@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Card } from 'semantic-ui-react'
+import { Card, Message } from 'semantic-ui-react'
 
 import AxiosThing from '../utilites/AxiosThing';
 import CardBtn from './CardBtn';
@@ -22,6 +22,14 @@ function MainBlock() {
         .catch(err => console.log(err));
       }, [state, update]);
 
+    function Completed(message) {
+    if (message.completed === true) {
+        return <Message success header='Completed'/>
+    } else {
+        return <Message error header='Not completed'/>
+        }
+    }
+
   return (
     <div className="MainBlock">
         <AddProject update={update} setUpdate={setUpdate} />
@@ -32,6 +40,7 @@ function MainBlock() {
                                 <Card.Header>Project {project.id}</Card.Header>
                                 <Card.Meta>{project.name}</Card.Meta>
                                 <Card.Description>{project.description}</Card.Description>
+                                <Completed completed={project.completed} />
                             </Card.Content>
                             <CardBtn id={project.id} setState={setState} />
                         </Card>
