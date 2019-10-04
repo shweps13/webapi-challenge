@@ -35,3 +35,22 @@
 #root > div > div > div.ui.text.container > div > h2 {
   padding-top: 3%;
 }
+.button-row{
+  width: 100%;
+  display: flex;
+}
+#root > div > div > div.ui.centered.cards > div > div.button-row > button {
+  width: 50%;
+  margin-left: 0;
+  margin-right: 0;
+}
+#root > div > div > div.ui.centered.cards > div > div.button-row > button:nth-child(1) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  background-color: #d0f0e9;
+}
+#root > div > div > div.ui.centered.cards > div > div.button-row > button:nth-child(2) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: rgb(238, 183, 183);
+}
