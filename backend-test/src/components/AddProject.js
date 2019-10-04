@@ -22,6 +22,15 @@ class AddForm extends React.Component {
     });
   };
   
+  booleanChange = e => {
+    this.setState({
+      projectData: {
+        ...this.state.projectData,
+        [e.target.name]: !this.state.projectData.completed
+      }
+    });
+  };
+  
   componentDidMount() {
 
     this.setState({
@@ -73,8 +82,7 @@ class AddForm extends React.Component {
         <Form.Field label='Completed?' 
             control='select'
             name="completed"
-            value={this.state.projectData.completed}
-            onChange={this.handleChange}
+            onChange={this.booleanChange}
         >
             <option value={thisFalse}>No</option>
             <option value={thisTrue}>Yes</option>
