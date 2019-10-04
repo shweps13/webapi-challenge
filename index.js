@@ -6,10 +6,41 @@ const server = express();
 const projectDB = require('./data/helpers/projectModel');
 const actionDB = require('./data/helpers/actionModel.js');
 
+// ===== Middleware =====
 function logger(req, res, next) {
     console.log(`[${new Date().toISOString()}] Was user method "${req.method}" to address "${req.path}"`);
     next();
 }
+
+function validateProjectId(req, res, next) {
+    const id = req.params.id;
+
+    projectDB.get(id)
+    .then(response => {
+        if (response === null) {
+            res.status(400).json({ message: "invalid project id" })
+          } else {
+            req.user = response;
+            next();
+          }
+    })
+}
+
+function validateActionsId(req, res, next) {
+    const id = req.params.id;
+
+    actionDB.get(id)
+    .then(response => {
+        if (!response) {
+            res.status(400).json({ message: "invalid action id" })
+          } else {
+            req.user = response;
+            next();
+          }
+    })
+}
+
+// ===== End of middleware =====
 
 server.use(express.json());
 server.use(helmet());
@@ -36,7 +67,7 @@ server.get('/api/projects', (req, res) => {
 
 });
 
-server.get('/api/projects/:id', (req, res) => {
+server.get('/api/projects/:id', validateProjectId, (req, res) => {
     const id = req.params.id;
 
     projectDB.get(id)
@@ -61,7 +92,7 @@ server.post('/api/projects/', (req, res) => {
     });
 });
 
-server.put('/api/projects/:id', (req, res) => {
+server.put('/api/projects/:id', validateProjectId, (req, res) => {
     const id = req.params.id;
     const update = req.body;
 
@@ -74,7 +105,7 @@ server.put('/api/projects/:id', (req, res) => {
     });
 });
 
-server.delete('/api/projects/:id', (req, res) => {
+server.delete('/api/projects/:id', validateProjectId, (req, res) => {
     const id = req.params.id;
 
     projectDB.remove(id)
@@ -103,7 +134,7 @@ server.get('/api/actions', (req, res) => {
 
 });
 
-server.get('/api/actions/:id', (req, res) => {
+server.get('/api/actions/:id', validateActionsId, (req, res) => {
     const id = req.params.id;
 
     actionDB.get(id)
@@ -128,7 +159,7 @@ server.post('/api/actions/', (req, res) => {
     });
 });
 
-server.put('/api/actions/:id', (req, res) => {
+server.put('/api/actions/:id', validateActionsId, (req, res) => {
     const id = req.params.id;
     const update = req.body;
 
@@ -141,7 +172,7 @@ server.put('/api/actions/:id', (req, res) => {
     });
 });
 
-server.delete('/api/actions/:id', (req, res) => {
+server.delete('/api/actions/:id', validateActionsId, (req, res) => {
     const id = req.params.id;
 
     actionDB.remove(id)
