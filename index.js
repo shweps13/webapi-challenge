@@ -110,7 +110,9 @@ server.delete('/api/projects/:id', validateProjectId, (req, res) => {
 
     projectDB.remove(id)
     .then(projects => {
-        res.json(projects);
+        if (projects === 1) {
+            res.status(200).json({ message: `The project information with ID ${id} was deleted.` });
+        }
     })
     .catch(error => {
         res.status(500).json({ error: "The projects information could not be deleted." })
@@ -177,7 +179,9 @@ server.delete('/api/actions/:id', validateActionsId, (req, res) => {
 
     actionDB.remove(id)
     .then(actions => {
-        res.json(actions);
+        if (actions === 1) {
+            res.status(200).json({ message: `The action information with ID ${id} was deleted.` });
+        }
     })
     .catch(error => {
         res.status(500).json({ error: "The actions information could not be deleted." })
