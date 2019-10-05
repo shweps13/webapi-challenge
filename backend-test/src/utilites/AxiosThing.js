@@ -5,7 +5,7 @@ import axios from 'axios';
 export const AxiosThing = () => {
 
   return axios.create({
-    baseURL: 'http://localhost:5000/api/',
+    baseURL: 'https://lambda-besprint1.herokuapp.com/api/',
 
   });
 };
