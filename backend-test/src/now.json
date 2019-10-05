@@ -1,0 +1,19 @@
+{
+    "version": 2,
+    "name": "backend-test",
+    "builds": [
+        {
+            "src": "backend-test/package.json",
+            "use": "@now/static-build",
+            "config": {
+                "distDir": "build"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "backend-test/$1"
+        }
+    ]
+}
