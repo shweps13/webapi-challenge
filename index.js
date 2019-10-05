@@ -1,6 +1,7 @@
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
+require('dotenv').config();
 
 const server = express();
 
@@ -193,7 +194,7 @@ server.delete('/api/actions/:id', validateActionsId, (req, res) => {
 });
 // === End of Actions routes ===
 
-const port = 5000
+const port = process.env.PORT
 
 server.listen(port, () => {
   console.log(`\n*** Server Running on http://localhost:${port} ***\n`);
